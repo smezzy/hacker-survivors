@@ -1,0 +1,21 @@
+###HOW TO USE THIS SHIT
+###Cheatshet
+
+main.current.main:
+-> main is the ~Main~ state, a state which holds all the states and manage transitions to other states
+-> current is the current ~State~
+-> last main, is the main ~Group~ of the current state, a group where all objects/entities within the state resides
+
+How to create a state:
+   You can create a state by copying the "StateTemplate" file, a state is instantiated by using main:add(<State>('StateName')), then the state
+   will be added to the state list, and can be started by using main:goto_state('StateName')
+
+How to create a GameObject:
+   Copy the "GameObject" template file, all game objects must have a group, and it must instantiate itself by calling self.group:add(self)
+   all objects must also have a remove property, so it can be safely removed from the game if needed
+   it's a good practice to return self after creation so you can do stuff like ~ local bullet = bullet(group, x, y) ~
+
+Important features:
+   Timer:
+      - timer:tween(seconds, object, { properties to tween })
+      - timer:after(seconds, function() end)
